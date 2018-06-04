@@ -6,9 +6,17 @@
     <title>What To Do?</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="styles/style.css" />
+    <script src="vendors/angular.js"></script>
     <script src="scripts/client.js"></script>
 </head>
 <body>
-    <h1>Hello Menkar</h1>
+    <div ng-app="ToDoApp">
+        <div ng-controller="ToDoController as tc">
+            <form>
+                <input type="text" ng-model="tc.newTask.name" placeholder="Task Name"/>
+                <button ng-click="tc.addTask()">Add Task</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
