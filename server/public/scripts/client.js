@@ -57,5 +57,23 @@ app.controller('ToDoController', ['$http', function($http) {
         
     }
 
+    vm.deleteTask = function(taskToDelete) {
+        console.log('Delete!');
+        console.log(taskToDelete);
+        if(confirm('Are you super sure about that?')) {
+            $http({
+                method: 'DELETE',
+                url: `/tasks/${taskToDelete._id}`
+            }).then(function(response) {
+                vm.getTasks();
+                
+            }).catch(function(error) {
+                console.log('Error from DELETE', error);
+                
+            })
+        }
+        
+    }
+
     vm.getTasks();
 }]);

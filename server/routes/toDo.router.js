@@ -33,6 +33,18 @@ router.put('/:id', (req, res) => {
         console.log('Error from PUT', error);
         res.sendStatus(500);
     })
+});
+
+router.delete('/:id', (req, res) => {
+    console.log('delete', req.params);
+    ToDo.findByIdAndRemove(req.params.id)
+    .then(() => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log('Error in Delete', error);
+        res.sendStatus(500);
+        
+    })
 })
 
 module.exports = router;
