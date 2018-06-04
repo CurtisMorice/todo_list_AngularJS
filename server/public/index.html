@@ -16,6 +16,11 @@
                 <input type="text" ng-model="tc.newTask.name" placeholder="Task Name"/>
                 <button ng-click="tc.addTask()">Add Task</button>
             </form>
+            <div ng-repeat="task in tc.toDos">
+                <p ng-class="{complete: task.completed}">{{task.name}}</p>
+                <button ng-hide="task.completed" ng-click="tc.completeTask(task)">Complete</button>
+                <button>Delete</button>
+            </div>
         </div>
     </div>
 </body>

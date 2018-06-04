@@ -21,6 +21,18 @@ router.get('/', (req, res) => {
         console.log('Error in GET', error);
         res.sendStatus(500);
     })
+});
+
+router.put('/:id', (req, res) => {
+    console.log('put', req.body);
+    console.log('put params', req.params);
+    ToDo.findByIdAndUpdate(req.params.id, req.body)
+    .then(() => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log('Error from PUT', error);
+        res.sendStatus(500);
+    })
 })
 
 module.exports = router;

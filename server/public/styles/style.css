@@ -1,3 +1,8 @@
 body {
     background-color: papayawhip;
 }
+
+.complete {
+    color: green;
+    text-decoration: line-through;
+}
